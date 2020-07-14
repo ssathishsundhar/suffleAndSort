@@ -1,0 +1,105 @@
+body {
+    font-family: sans-serif;
+}
+
+h1 {
+    text-align: center;
+}
+
+p {
+    font-size: 5vh;
+}
+
+.column {
+    flex: 1 1 30%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.row {
+    display: flex;
+    flex-direction: row;
+}
+
+.left {
+    flex: 5;
+    order: 1;
+    display: flex;
+    flex: 4 1 30%;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: stretch;
+    justify-content: stretch;
+    color: #ffffff;
+    flex-direction: row;
+}
+
+.right {
+    order: 2;
+    flex: 1;
+    align-content: center;
+    align-items: center;
+    flex-direction: column;
+    display: flex;
+    justify-content: center;
+}
+
+.content {
+    display: flex;
+    flex-direction: row;
+    height: 100%;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    justify-content: flex-start;
+    align-items: stretch;
+    align-content: stretch;
+    height: 100%;
+}
+
+input[type="button"] {
+    background-color: #72C3DC;
+    border-radius: 1px;
+    color: #ffffff;
+    margin: 10px;
+    width: 100px;
+}
+
+@media only screen and (max-width: 768px) {
+    .left {
+        flex: 10 1;
+        order: 2;
+        display: flex;
+        flex-wrap: wrap;
+        align-items: stretch;
+        justify-content: stretch;
+        color: #ffffff;
+        flex-direction: column;
+    }
+
+    .right {
+        order: 1;
+        flex: 1;
+        align-content: center;
+        align-items: center;
+        flex-direction: row;
+        display: flex;
+        justify-content: center;
+    }
+
+    .column {
+        flex: 1 1;
+    }
+
+    .content {
+        flex-direction: column;
+    }
+
+    p {
+        font-size: 2vh;
+    }
+}

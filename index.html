@@ -1,0 +1,99 @@
+<html>
+  <head>
+    <meta content="width=device-width, initial-scale=1" name="viewport" />
+    <link rel="stylesheet" type="text/css" href="index.css" />
+    <title>Suffle and Sort</title>
+
+    <script>
+      function load() {
+        var arr = [
+          {
+            value: 1,
+            color: "#6f98a8",
+          },
+          {
+            value: 2,
+            color: "#2b8ead",
+          },
+          {
+            value: 3,
+            color: "#2f454e",
+          },
+          {
+            value: 4,
+            color: "#2b8ead",
+          },
+          {
+            value: 5,
+            color: "#2f454e",
+          },
+          {
+            value: 6,
+            color: "#bfbfbf",
+          },
+          {
+            value: 7,
+            color: "#bfbfbf",
+          },
+          {
+            value: 8,
+            color: "#6f98a8",
+          },
+          {
+            value: 9,
+            color: "#2f454e",
+          },
+        ];
+
+        for (var i = 0; i < arr.length; i++) {
+          var div = document.createElement("div");
+          div.className = "column";
+          div.style.backgroundColor = arr[i].color;
+          var p = document.createElement("p");
+          p.innerHTML = arr[i].value;
+          div.appendChild(p);
+          document.getElementsByClassName("left")[0].appendChild(div);
+        }
+      }
+
+      function suffle() {
+        var parent = document.getElementsByClassName("left")[0];
+        var frag = document.createDocumentFragment();
+        while (parent.children.length) {
+          frag.appendChild(
+            parent.children[Math.floor(Math.random() * parent.children.length)]
+          );
+        }
+        parent.appendChild(frag);
+      }
+
+      function sort() {
+        var list = document.querySelector(".left");
+
+        [...list.children]
+          .sort((a, b) =>
+            a.children[0].innerText > b.children[0].innerText ? 1 : -1
+          )
+          .forEach((node) => list.appendChild(node));
+      }
+    </script>
+  </head>
+
+  <body onload="load()">
+    <div class="container">
+      <h1>Suffle and Sort</h1>
+      <div class="content">
+        <div class="left"></div>
+        <div class="right">
+          <input
+            type="button"
+            title="SUFFLE"
+            value="SUFFLE"
+            onclick="suffle()"
+          />
+          <input type="button" title="SORT" value="SORT" onclick="sort()" />
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
